@@ -17,7 +17,7 @@ const Question = sequelize.define('questions', {
     allowNull: false,
   },
   type: {
-    type: DataTypes.ENUM('choix_unique', 'choix_multiple', 'vrai_faux'),
+    type: DataTypes.ENUM('choix_unique', 'choix_multiple'),
     allowNull: false,
   },
   options: {

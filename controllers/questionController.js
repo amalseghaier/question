@@ -13,11 +13,11 @@ const createQuestion = async (req, res) => {
       questions.map(async (question) => {
         const { titre, type, options, Reponse_correcte, points } = question;
 
-        // Traiter les réponses correctes en fonction du type de question
+        // Traitement des réponses correctes en fonction du type de question
         let processedCorrectAnswers = Reponse_correcte;
         if (type === 'choix_multiple') {
           processedCorrectAnswers = Reponse_correcte.join(',');
-        } else if (type === 'vrai_faux' && typeof Reponse_correcte === 'boolean') {
+        } else if (type === 'choix_unique') {
           processedCorrectAnswers = Reponse_correcte.toString();
         }
 
@@ -39,6 +39,7 @@ const createQuestion = async (req, res) => {
     res.status(500).json({ message: 'Erreur lors de la création des questions' });
   }
 };
+
 
 
 // Obtenir toutes les questions
